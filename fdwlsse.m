@@ -4,24 +4,6 @@ function [delta, V, N, cpu_time] = fdwlsse( ...
 % FDWLSSE  Weighted least–squares state estimator (fast–decoupled style)
 %   [delta, V, N, cpu_time] = fdwlsse(nfrom, nto, r, xline, bsh, ...
 %       Pinj, Qinj, Pflow, Qflow, Vnode, toler, maxiter)
-%
-% Inputs:
-%   nfrom, nto : line terminal buses (column vectors)
-%   r, xline   : line resistance and reactance (p.u.)
-%   bsh        : total line shunt susceptance (p.u.)
-%   Pinj       : [bus, P_meas, sqrt(Rmm)]  active injection measurements
-%   Qinj       : [bus, Q_meas, sqrt(Rmm)]  reactive injection measurements
-%   Pflow      : [from, to, P_meas, sqrt(Rmm)] active line–flow meas.
-%   Qflow      : [from, to, Q_meas, sqrt(Rmm)] reactive line–flow meas.
-%   Vnode      : [bus, V_meas, sqrt(Rmm)]  voltage magnitude measurements
-%   toler      : convergence tolerance on ||Δx||_∞
-%   maxiter    : maximum iterations
-%
-% Outputs:
-%   delta   : estimated voltage angles (rad), size nb×1
-%   V       : estimated voltage magnitudes (p.u.), size nb×1
-%   N       : iterations to convergence
-%   cpu_time: wall–clock time (s)
 
 %% Build Ybus
 nb = max(max(nfrom), max(nto));
